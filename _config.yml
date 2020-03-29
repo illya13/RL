@@ -1,0 +1,9 @@
+remote_theme: fongandrew/hydeout
+
+title:            RL @illya13
+baseurl:          '/RL'
+paginate:         5
+google_analytics: UA-7703990-4
+
+disqus:
+  shortname:      rl-at-illya13
