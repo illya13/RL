@@ -7,12 +7,6 @@ $sidebar-sticky: false;
 @import "hydeout";
 
 @media (min-width: $large-breakpoint) {
-  #sidebar {
-    .site-title {
-      font-size: 2.25rem;
-    }
-  }
-
   .container {
     > * {
       max-width: 48rem;
