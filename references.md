@@ -18,3 +18,4 @@ sidebar_sort_order: 100
 - [Reinforcement Learning @ Perfectial](https://perfectial.com/tag/reinforcement-learning/)
 - [Reinforcement Learning @ TWIML AI](https://twimlai.com/?s=reinforcement+learning)
 - [Reinforcement Learning @ mc.ai](https://mc.ai/?s=Reinforcement+Learning)
+- [Richard S. Sutton](http://www.incompleteideas.net/)
