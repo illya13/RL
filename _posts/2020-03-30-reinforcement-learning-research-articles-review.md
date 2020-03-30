@@ -3,9 +3,12 @@ layout: post
 title: Reinforcement Learning Research Articles Review
 categories:
   - Articles
+  - Papers
 tags:
   - Artificial Intelligence
   - AI
+  - Articles
+  - Papers
 excerpt_separator:  <!--more-->
 ---
 
