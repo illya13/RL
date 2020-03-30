@@ -21,3 +21,4 @@ sidebar_sort_order: 100
 - [Richard S. Sutton](http://www.incompleteideas.net/)
     - [Reinforcement Learning and Artificial Intellgience (RLAI) lab](http://rlai.ualberta.ca/)
     - [Reinforcement Learning: An Introduction, Richard S. Sutton and Andrew G. Barto, 2nd, 2018](http://incompleteideas.net/book/the-book.html)
+- [Eye on AI](https://www.eye-on.ai/)
