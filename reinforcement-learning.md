@@ -18,6 +18,7 @@ Reinforcement Learning has four essential elements:
 - `Rewards.` The evaluation of an action, which can be positive or negative.
 
 ## Supervised, Unsupervised, and Reinforcement Learning: What are the Differences?
+![RL vs ML]({{ "/assets/img/RLvsML.jpg" | relative_url }})
 
 ### Difference #1: Static Vs.Dynamic
 The goal of supervised and unsupervised learning is to search for and learn about patterns in training data, which is quite static. RL, on the other hand, is about developing a policy that tells an agent which action to choose at each step — making it more dynamic.
