@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Reinforcement Learning Research Articles Review
+categories:
+  - Articles
+tags:
+  - Artificial Intelligence
+  - AI
 excerpt_separator:  <!--more-->
 ---
 
@@ -17,6 +22,7 @@ excerpt_separator:  <!--more-->
 > Inverse reinforcement learning (IRL), analogously to RL, refers to both the problem and associated methods by which an agent passively observing another agent's actions over time, seeks to learn the latter's reward function. The learning agent is typically called the learner while the observed agent is often an expert in popular applications such as in learning from demonstrations. Some of the assumptions that underlie current IRL methods are impractical for many robotic applications. Specifically, they assume that the learner has full observability of the expert as it performs its task; that the learner has full knowledge of the expert's dynamics; and that there is always only one expert agent in the environment. For example, these assumptions are particularly restrictive in our application scenario where a subject robot is tasked with penetrating a perimeter patrol by two other robots after observing them from a vantage point. In our instance of this problem, the learner can observe at most 10% of the patrol. We relax these assumptions and systematically generalize a known IRL method, Maximum Entropy IRL, to enable the subject to learn the preferences of the patrolling robots, subsequently their behaviors, and predict their future positions well enough to plan a route to its goal state without being spotted. Challenged by occlusion, multiple interacting robots, and partially known dynamics we demonstrate empirically that the generalization improves significantly on several baselines in its ability to inversely learn in this application setting. Of note, it leads to significant improvement in the learner's overall success rate of penetrating the patrols. Our methods represent significant steps towards making IRL pragmatic and applicable to real-world contexts. 
 
 ***
+<!--more-->
 
 [Qualitative case-based reasoning and learning](https://www.sciencedirect.com/science/article/pii/S0004370218303424).
 <cite>Artificial Intelligence, Volume 283, June 2020.
