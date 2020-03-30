@@ -14,4 +14,5 @@ sidebar_sort_order: 100
     - Part 6: TD(λ) & Q-learning (coming soon)
 - [Reinforcement Learning @ KDnuggets](https://www.kdnuggets.com/tag/reinforcement-learning)
 - [Reinforcement Learning @ Perfectial](https://perfectial.com/tag/reinforcement-learning/)
+- [Reinforcement Learning @ TWIML AI](https://twimlai.com/?s=reinforcement+learning)
  
