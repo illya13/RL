@@ -12,3 +12,6 @@ sidebar_sort_order: 100
     - [Part 4: Optimal Policy Search with MDP](https://medium.com/ai%C2%B3-theory-practice-business/reinforcement-learning-part-4-optimal-policy-search-with-mdp-7fc96158ea8a)
     - [Part 5: Monte-Carlo and Temporal-Difference Learning](https://medium.com/ai%C2%B3-theory-practice-business/reinforcement-learning-part-5-monte-carlo-and-temporal-difference-learning-889053aba07d)
     - Part 6: TD(λ) & Q-learning (coming soon)
+- [Reinforcement Learning @ KDnuggets](https://www.kdnuggets.com/tag/reinforcement-learning)
+- [Reinforcement Learning @ Perfectial](https://perfectial.com/tag/reinforcement-learning/)
+ 
