@@ -19,4 +19,5 @@ sidebar_sort_order: 100
 - [Reinforcement Learning @ TWIML AI](https://twimlai.com/?s=reinforcement+learning)
 - [Reinforcement Learning @ mc.ai](https://mc.ai/?s=Reinforcement+Learning)
 - [Richard S. Sutton](http://www.incompleteideas.net/)
-- [Reinforcement Learning and Artificial Intellgience (RLAI) lab](http://rlai.ualberta.ca/)
+    - [Reinforcement Learning and Artificial Intellgience (RLAI) lab](http://rlai.ualberta.ca/)
+    - [Reinforcement Learning: An Introduction, Richard S. Sutton and Andrew G. Barto, 2nd, 2018](http://incompleteideas.net/book/the-book.html)
