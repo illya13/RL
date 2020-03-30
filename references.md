@@ -5,6 +5,8 @@ sidebar_link: true
 sidebar_sort_order: 100
 ---
 
+- [Reinforcement learning resources curated](http://aikorea.org/awesome-rl/)
+- [Reinforcement Learning @ Towards Data Science](https://towardsdatascience.com/tagged/reinforcement-learning)
 - AI³. Theory, Practice, Business
     - [Part 1: A Brief Introduction to RL](https://medium.com/ai%C2%B3-theory-practice-business/reinforcement-learning-part-1-a-brief-introduction-a53a849771cf)
     - [Part 2: Introducing the Markov Process](https://medium.com/ai%C2%B3-theory-practice-business/reinforcement-learning-part-2-introducing-markov-process-d3586d4003e0)
@@ -16,4 +18,3 @@ sidebar_sort_order: 100
 - [Reinforcement Learning @ Perfectial](https://perfectial.com/tag/reinforcement-learning/)
 - [Reinforcement Learning @ TWIML AI](https://twimlai.com/?s=reinforcement+learning)
 - [Reinforcement Learning @ mc.ai](https://mc.ai/?s=Reinforcement+Learning)
- 
