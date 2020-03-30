@@ -9,6 +9,8 @@ sidebar_sort_order: 1
 
 Reinforcement Learning is a subfield of machine learning that teaches an agent how to choose an action from its action space, within a particular environment, in order to maximize rewards over time.
 
+![RL]({{ "/assets/img/RL.png" | relative_url }})
+
 Reinforcement Learning has four essential elements:
 - `Agent.` The program you train, with the aim of doing a job you specify.
 - `Environment.` The world, real or virtual, in which the agent performs actions.
