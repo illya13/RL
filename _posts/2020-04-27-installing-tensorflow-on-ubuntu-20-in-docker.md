@@ -26,6 +26,7 @@ There are number of `docker` packages available
 - `docker-ce` package from docker.com
 - `docker.io` package provided by Canonical
 - `docker` package provided by Red Hat
+
 Docker versions `> 19.03` are [supported](https://github.com/NVIDIA/nvidia-docker/wiki) by NVIDIA Container Toolkit.  
 
 <!--more-->
