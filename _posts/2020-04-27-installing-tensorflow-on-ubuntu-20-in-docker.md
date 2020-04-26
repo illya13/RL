@@ -58,7 +58,9 @@ Add the package repositories
 ```
 
 At this point I had to clean up `/etc/apt/sources.list.d/` folder. 
-```bash > cd /etc/apt/sources.list.d/; rm docker.list*```
+```bash
+> cd /etc/apt/sources.list.d/; rm docker.list*
+```
 
 Continue installation
 ```bash
