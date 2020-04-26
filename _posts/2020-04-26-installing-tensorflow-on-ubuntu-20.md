@@ -25,20 +25,20 @@ NVIDIA software:
 Please also note:
 - CUDA `10.1` requires GCC `<= 8`
 
-At time of writing there are following versions available:
+At time of writing the following versions were available:
 - TensorFlow: `2.1.0`
 - [NVIDIA GPU drivers](https://www.nvidia.com/drivers): `440.82`
 - [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit): `10.1.243` (with GPU drivers `418.87`)
 - [cuDNN SDK](https://developer.nvidia.com/cudnn): `v7.6.5`
 
 <!--more-->
-## Compatible versions of python and gcc 
+## Install compatible versions of python and gcc 
 Ubuntu 20.04 LTS comes with:
 - python: `3.8`
 - gcc: `9`
 
-So the first thing we need to do is to install compatible versions of `python` and `gcc`
-
+So the first thing we need to do is to install compatible versions of `python` and `gcc` - i.e. `python 7` and `gcc 8`.
+Install `gcc's`. But let's use `gcc 9` for now as it will be used to install GPU Drivers.
 ```bash
 > sudo apt -y install build-essential
 > sudo apt -y install gcc-8 g++-8 gcc-9 g++-9
@@ -73,6 +73,7 @@ I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https
 Python 3.7.7
 ```   
 ## NVIDIA GPU drivers
+Get and run installer.
 ```bash
 > sudo bash NVIDIA-Linux-x86_64-440.82.run
 
@@ -80,19 +81,18 @@ ERROR: The Nouveau kernel driver is currently in use by your system.  This drive
          driver README and your Linux distribution's documentation for details on how to correctly disable the Nouveau kernel driver.
 ```
 
-... follow the instructions to blacklist Nouveau kernel driver ...
-
+... follow the instructions to blacklist Nouveau kernel driver. Then run:
 ```bash
 > sudo update-initramfs -u
 > sudo reboot
 ````
-Retry installation, ignore `Xorg` warnings and configuration if you are working only from command line.
-Note you still need `gcc-9` to install drivers. At the end you should get
-`Installation of the NVIDIA Accelerated Graphics Driver for Linux-x86_64 (version: 440.82) is now complete.`
-
+Retry installation, ignore `Xorg` warnings and configuration if you are working from command line only.
 ```bash
 > sudo bash NVIDIA-Linux-x86_64-440.82.run
 ```
+
+Note you still need `gcc-9` to install drivers. At the end you should get
+`Installation of the NVIDIA Accelerated Graphics Driver for Linux-x86_64 (version: 440.82) is now complete.`
 
 Verify installation:
 ```bash
@@ -167,8 +167,9 @@ Copy the following files into the CUDA Toolkit directory, and change the file pe
 > sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 > sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 > sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+```
 
-I had to make the following changes
+I had to make the following changes:
 ```bash
 > rm /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so.7 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so
 > sudo ln -s libcudnn.so.7.6.5 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so.7
@@ -182,12 +183,12 @@ I had to make the following changes
 > pip install tensorflow-gpu
 ```
 
-Check GPU support is enabled, and you can access your GPU
+Check GPU support is enabled, and you can access your GPU:
 ```bash
 > python -c "import tensorflow as tf; tf.config.list_physical_devices('GPU')"
 ```
 Ignore the warning `successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero`
-Also to a draft benchmark your GPU you still (repo is not maintained) do the following:
+Also to draft benchmark your GPU you still (repo is not maintained) can do the following:
 ```bash
 > git clone https://github.com/tensorflow/benchmarks
 > python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --num_gpus=1 --model resnet50 --batch_size 64
@@ -215,4 +216,3 @@ You also can run `nvidia-smi` in parallel to check GPU load.
 |    0     84404      C   ...e/ubuntu/.pyenv/versions/tf2/bin/python  7989MiB |
 +-----------------------------------------------------------------------------
 ```
-
