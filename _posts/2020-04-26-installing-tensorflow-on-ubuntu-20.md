@@ -26,7 +26,7 @@ Please also note:
 - CUDA `10.1` requires GCC `<= 8`
 
 At time of writing there are following versions available:
-- TensorFlow: `2.1.x` <fix me>
+- TensorFlow: `2.1.0`
 - [NVIDIA GPU drivers](https://www.nvidia.com/drivers): `440.82`
 - [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit): `10.1.243` (with GPU drivers `418.87`)
 - [cuDNN SDK](https://developer.nvidia.com/cudnn): `v7.6.5`
@@ -61,10 +61,10 @@ update-alternatives: using /usr/bin/gcc-9 to provide /usr/bin/gcc (gcc) in auto 
 ```
 
 There are multiple ways how to manage python version and envs. 
-I've selected [pyenv](https://github.com/pyenv/pyenv)
+I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) 
  
 ```bash
-> sudo apt-get install -y zlib1g-dev libbz2-dev libreadline-dev libssl-dev libsqlite3-dev
+> sudo apt-get install -y zlib1g-dev libbz2-dev libreadline-dev libssl-dev libsqlite3-dev libffi-dev
 > pyenv install 3.7.7
 > pyenv global 3.7.7
 
@@ -175,3 +175,6 @@ I had to make the following changes
 > sudo ldconfig
 ```
 ## TensorFlow 2 with GPU support
+```bash
+> 
+
