@@ -66,7 +66,8 @@ I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https
 ```bash
 > sudo apt-get install -y zlib1g-dev libbz2-dev libreadline-dev libssl-dev libsqlite3-dev libffi-dev
 > pyenv install 3.7.7
-> pyenv global 3.7.7
+> pyenv virtualenv 3.7.7 tf2
+> pyenv global tf2
 
 > python -V
 Python 3.7.7
@@ -176,5 +177,42 @@ I had to make the following changes
 ```
 ## TensorFlow 2 with GPU support
 ```bash
-> 
+> pip install --upgrade pip
+> pip install tensorflow
+> pip install tensorflow-gpu
+```
+
+Check GPU support is enabled, and you can access your GPU
+```bash
+> python -c "import tensorflow as tf; tf.config.list_physical_devices('GPU')"
+```
+Ignore the warning `successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero`
+Also to a draft benchmark your GPU you still (repo is not maintained) do the following:
+```bash
+> git clone https://github.com/tensorflow/benchmarks
+> python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --num_gpus=1 --model resnet50 --batch_size 64
+```
+
+So you can compare your results with some [well-known numbers](https://www.leadergpu.com/tensorflow_resnet50_benchmark). 
+You also can run `nvidia-smi` in parallel to check GPU load.
+```bash
+> watch nvidia-smi
+
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.82       Driver Version: 440.82       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 107...  Off  | 00000000:09:00.0 Off |                  N/A |
+| 39%   63C    P2   179W / 180W |   7999MiB /  8118MiB |     99%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0     84404      C   ...e/ubuntu/.pyenv/versions/tf2/bin/python  7989MiB |
++-----------------------------------------------------------------------------
+```
 
