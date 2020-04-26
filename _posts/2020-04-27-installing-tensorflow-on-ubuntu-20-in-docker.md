@@ -32,7 +32,10 @@ Docker versions `> 19.03` are [supported](https://github.com/NVIDIA/nvidia-docke
 At time of writing the official Ubuntu's `docker.io` is the best option to use. Just run
 ```bash
 > sudo apt install docker-compose
+```
 
+Check `docker` version
+```bash
 > docker version
 Client:
  Version:           19.03.8
