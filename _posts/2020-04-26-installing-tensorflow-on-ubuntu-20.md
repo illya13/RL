@@ -10,7 +10,7 @@ tags:
   - Ubuntu
 excerpt_separator:  <!--more-->
 ---
-# Intro
+## Intro
 According to [https://www.tensorflow.org/install](https://www.tensorflow.org/install)
 and [https://www.tensorflow.org/install/gpu](https://www.tensorflow.org/install/gpu)
 the following has to be installed:
@@ -32,7 +32,7 @@ At time of writing there are following versions available:
 - [cuDNN SDK](https://developer.nvidia.com/cudnn): `v7.6.5`
 
 <!--more-->
-# Compatible versions of python and gcc 
+## Compatible versions of python and gcc 
 Ubuntu 20.04 LTS comes with:
 - python: `3.8`
 - gcc: `9`
@@ -60,34 +60,18 @@ Press <enter> to keep the current choice[*], or type selection number: 0
 update-alternatives: using /usr/bin/gcc-9 to provide /usr/bin/gcc (gcc) in auto mode
 ```
 
+There are multiple ways how to manage python version and envs. 
+I've selected [pyenv](https://github.com/pyenv/pyenv)
+ 
 ```bash
-> sudo add-apt-repository ppa:deadsnakes/ppa
-Press [ENTER]
-```
+> sudo apt-get install -y zlib1g-dev libbz2-dev libreadline-dev libssl-dev libsqlite3-dev
+> pyenv install 3.7.7
+> pyenv global 3.7.7
 
-```bash
-> sudo apt-get update
-> sudo apt-get install python3.7
-
-> sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 7
-> sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 8
-
-> sudo update-alternatives --config python
-There are 2 choices for the alternative python (providing /usr/bin/python).
-
-  Selection    Path                Priority   Status
-------------------------------------------------------------
-* 0            /usr/bin/python3.8   8         auto mode
-  1            /usr/bin/python3.7   7         manual mode
-  2            /usr/bin/python3.8   8         manual mode
-
-Press <enter> to keep the current choice[*], or type selection number: 1
-update-alternatives: using /usr/bin/python3.7 to provide /usr/bin/python (python) in manual mode
-
-> python --version
+> python -V
 Python 3.7.7
 ```   
-# NVIDIA GPU drivers
+## NVIDIA GPU drivers
 ```bash
 > sudo bash NVIDIA-Linux-x86_64-440.82.run
 
@@ -131,7 +115,7 @@ Sun Apr 26 07:38:29 2020
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ``` 
-# CUDA Toolkit and cuDNN
+## CUDA Toolkit and cuDNN
 Switch `gcc` to `gcc-8`
 ```bash
 > sudo update-alternatives --config gcc
@@ -190,3 +174,4 @@ I had to make the following changes
 > sudo ln -s libcudnn.so.7 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so
 > sudo ldconfig
 ```
+## TensorFlow 2 with GPU support
