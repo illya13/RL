@@ -61,7 +61,7 @@ Press <enter> to keep the current choice[*], or type selection number: 0
 update-alternatives: using /usr/bin/gcc-9 to provide /usr/bin/gcc (gcc) in auto mode
 ```
 
-There are multiple ways how to manage python version and envs. 
+There are multiple ways how to manage `python` versions and envs. 
 I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) 
  
 ```bash
