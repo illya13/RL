@@ -179,7 +179,14 @@ Unzip the cuDNN package
 
 Copy the following files into the CUDA Toolkit directory, and change the file permissions.
 ```bash
-sudo cp cuda/include/cudnn.h /usr/local/cuda/include
-sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+> sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+> sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+> sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+
+I had to make the following changes
+```bash
+> rm /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so.7 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so
+> sudo ln -s libcudnn.so.7.6.5 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so.7
+> sudo ln -s libcudnn.so.7 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so
+> sudo ldconfig
 ```
