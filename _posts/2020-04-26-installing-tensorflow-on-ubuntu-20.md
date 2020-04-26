@@ -37,7 +37,8 @@ Ubuntu 20.04 LTS comes with:
 - python: `3.8`
 - gcc: `9`
 
-So the first thing we need to do is to install compatible versions of `python` and `gcc` - i.e. `python 7` and `gcc 8`.
+So the first thing we need to do is to install compatible versions of `python` and `gcc` - i.e. `python 3.7` and `gcc 8`.
+
 Install `gcc's`. But let's use `gcc 9` for now as it will be used to install GPU Drivers.
 ```bash
 > sudo apt -y install build-essential
