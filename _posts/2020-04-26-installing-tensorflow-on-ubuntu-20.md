@@ -39,7 +39,7 @@ Ubuntu 20.04 LTS comes with:
 
 So the first thing we need to do is to install compatible versions of `python` and `gcc`
 
-```shell script
+```bash
 > sudo apt -y install build-essential
 > sudo apt -y install gcc-8 g++-8 gcc-9 g++-9
 
@@ -60,12 +60,12 @@ Press <enter> to keep the current choice[*], or type selection number: 0
 update-alternatives: using /usr/bin/gcc-9 to provide /usr/bin/gcc (gcc) in auto mode
 ```
 
-```shell script
+```bash
 > sudo add-apt-repository ppa:deadsnakes/ppa
 Press [ENTER]
 ```
 
-```shell script
+```bash
 > sudo apt-get update
 > sudo apt-get install python3.7
 
@@ -88,7 +88,7 @@ update-alternatives: using /usr/bin/python3.7 to provide /usr/bin/python (python
 Python 3.7.7
 ```   
 # NVIDIA GPU drivers
-```shell script
+```bash
 > sudo bash NVIDIA-Linux-x86_64-440.82.run
 
 ERROR: The Nouveau kernel driver is currently in use by your system.  This driver is incompatible with the NVIDIA driver, and must be disabled before proceeding.  Please consult the NVIDIA
@@ -97,7 +97,7 @@ ERROR: The Nouveau kernel driver is currently in use by your system.  This drive
 
 ... follow the instructions to blacklist Nouveau kernel driver ...
 
-```shell script
+```bash
 > sudo update-initramfs -u
 > sudo reboot
 ````
@@ -105,12 +105,12 @@ Retry installation, ignore `Xorg` warnings and configuration if you are working 
 Note you still need `gcc-9` to install drivers. At the end you should get
 `Installation of the NVIDIA Accelerated Graphics Driver for Linux-x86_64 (version: 440.82) is now complete.`
 
-```shell script
+```bash
 > sudo bash NVIDIA-Linux-x86_64-440.82.run
 ```
 
 Verify installation:
-```shell script
+```bash
 > nvidia-smi
 
 Sun Apr 26 07:38:29 2020
@@ -132,7 +132,7 @@ Sun Apr 26 07:38:29 2020
 +-----------------------------------------------------------------------------+
 ``` 
 
-```shell script
+```bash
 > sudo update-alternatives --config gcc
 
 There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
