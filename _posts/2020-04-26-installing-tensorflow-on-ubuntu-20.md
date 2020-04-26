@@ -23,12 +23,12 @@ NVIDIA software:
 - cuDNN SDK: `>= 7.6`
 
 Please also note:
-- CUDA `10.1` and `10.2` requires GCC `<= 8`
+- CUDA `10.1` requires GCC `<= 8`
 
 At time of writing there are following versions available:
 - TensorFlow: `2.1.x` <fix me>
 - [NVIDIA GPU drivers](https://www.nvidia.com/drivers): `440.82`
-- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit): `10.2.89` (with GPU drivers `440.33`) and `10.1.243` (with GPU drivers `418.87`)
+- [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit): `10.1.243` (with GPU drivers `418.87`)
 - [cuDNN SDK](https://developer.nvidia.com/cudnn): `v7.6.5`
 
 <!--more-->
@@ -131,7 +131,8 @@ Sun Apr 26 07:38:29 2020
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ``` 
-
+# CUDA Toolkit and cuDNN
+Switch `gcc` to `gcc-8`
 ```bash
 > sudo update-alternatives --config gcc
 
@@ -150,3 +151,35 @@ gcc --version
 gcc (Ubuntu 8.4.0-3ubuntu2) 8.4.0
 ```
 
+Run installer, accept license, deselect Driver 
+```bash
+> sudo bash cuda_10.1.243_418.87.00_linux.run
+
+x CUDA Installer                                                               x
+x - [ ] Driver                                                                 x
+x      [ ] 418.87.00                                                           x
+x + [X] CUDA Toolkit 10.1                                                      x
+x   [X] CUDA Samples 10.1                                                      x
+x   [X] CUDA Demo Suite 10.1                                                   x
+x   [X] CUDA Documentation 10.1                                                x
+x   Options                                                                    x
+x   Install                                                                    x
+```
+
+Please make sure that
+```
+ -   PATH includes /usr/local/cuda-10.1/bin
+ -   LD_LIBRARY_PATH includes /usr/local/cuda-10.1/lib64, or, add /usr/local/cuda-10.1/lib64 to /etc/ld.so.conf and run ldconfig as root
+```
+
+Unzip the cuDNN package
+```bash
+> tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+```
+
+Copy the following files into the CUDA Toolkit directory, and change the file permissions.
+```bash
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+```
