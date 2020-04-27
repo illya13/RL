@@ -20,7 +20,6 @@ the following has to be installed:
 - docker: `> 19.03`
 - [NVIDIA GPU drivers](https://www.nvidia.com/drivers)
 - [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
-
 ## Docker in Ubuntu 20.04 LTS
 There are number of `docker` packages available
 - `docker-ce` package from docker.com
@@ -49,7 +48,6 @@ Server:
   API version:      1.40 (minimum version 1.12)
 ...  
 ``` 
-
 ## NVIDIA Container Toolkit
 Add the package repositories
 ```bash
