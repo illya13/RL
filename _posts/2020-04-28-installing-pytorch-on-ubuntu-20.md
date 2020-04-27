@@ -11,7 +11,7 @@ tags:
 excerpt_separator:  <!--more-->
 ---
 ## Intro
-According to [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
+According to [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) and [https://github.com/NVIDIA/nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 the following has to be installed:
 - python: `>= 3.6`
 - python package managers: `Anaconda` or `pip`
