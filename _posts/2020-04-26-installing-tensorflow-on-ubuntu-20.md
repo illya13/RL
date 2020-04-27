@@ -159,7 +159,7 @@ Please make sure that
 
 Unzip the cuDNN package
 ```bash
-> tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+> tar -xzvf cudnn-10.1-linux-x64-v7.6.5.32.tgz
 ```
 
 Copy the following files into the CUDA Toolkit directory, and change the file permissions.
