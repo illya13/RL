@@ -98,3 +98,4 @@ Run benchmark in a docker
 ```bash
 > docker run --gpus all -it --rm -v /home/ubuntu/benchmarks:/benchmarks tensorflow/tensorflow:latest-gpu python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --num_gpus=1 --model resnet50 --batch_size 64
 ```
+Fix the path `/home/ubuntu/benchmarks` above to your local folder. 

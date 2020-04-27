@@ -30,7 +30,7 @@ Please also note:
 Ubuntu 20.04 LTS comes with:
 - gcc: `9`
 
-So the first thing we need to do is to install compatible versions of `gcc` - i.e. `gcc 8`.
+So the first thing we need to do is to install compatible versions of `gcc` i.e. `gcc 8`.
 
 Install `gcc's`. But let's use `gcc 9` for now as it will be used to install GPU Drivers.
 ```bash
@@ -178,6 +178,8 @@ I had to make the following changes:
 Check GPU support is enabled, and you can access your GPU:
 ```bash
 > python -c "from __future__ import print_function; import torch; print(torch.cuda.is_available())"
+
+True
 ```
 Also to benchmark your GPU you can do the following:
 ```bash
@@ -187,7 +189,7 @@ Also to benchmark your GPU you can do the following:
 > python benchmark_models.py
 ```
 
-So you can compare your results with some [well-known numbers](https://www.leadergpu.com/tensorflow_resnet50_benchmark). 
+So you can compare your results with some [well-known numbers](https://github.com/ryujaehun/pytorch-gpu-benchmark). 
 You also can run `nvidia-smi` in parallel to check GPU load.
 ```bash
 > watch nvidia-smi
@@ -280,9 +282,14 @@ Run `nvidia-smi` in a docker
 Run `PyTorch` in a docker
 ```bash
 > docker run -it --rm --gpus all pytorch/pytorch python -c "from __future__ import print_function; import torch; print(torch.cuda.is_available())"
+
+True
 ```
 
 Run benchmark in a docker
 ```bash
-> docker run --gpus all -it --rm -v /home/ubuntu/benchmarks:/benchmarks tensorflow/tensorflow:latest-gpu python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --num_gpus=1 --model resnet50 --batch_size 64
+> docker run --gpus all --shm-size=512M -it --rm -v /home/ubuntu/pytorch-gpu-benchmark:/pytorch-gpu-benchmark pytorch/pytorch
+(in a docker) > pip install psutil cufflinks plotly pandas matplotlib
+(in a docker) > python /pytorch-gpu-benchmark/benchmark_models.py
 ```
+Fix the path `/home/ubuntu/pytorch-gpu-benchmark` above to your local folder.
