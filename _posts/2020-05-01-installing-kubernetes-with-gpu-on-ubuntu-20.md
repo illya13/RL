@@ -26,6 +26,7 @@ Before continuing Kubernetes installation process, please make sure you already 
 - [NVIDIA GPU drivers](https://www.nvidia.com/drivers)
 - docker: `> 19.03`
 - [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
+<!--more-->
 
 Check docker NVIDIA support 
 ```bash
@@ -38,7 +39,6 @@ Check docker NVIDIA support
 If not please check my other tutorials and install missing bits:
 - [Installing TensorFlow 2 with GPU support on Ubuntu 20.04 LTS in Docker](https://illya13.github.io/RL/tutorial/2020/04/27/installing-tensorflow-on-ubuntu-20-in-docker.html)
 - [Installing PyTorch 1.5 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/28/installing-pytorch-on-ubuntu-20.html)
-<!--more-->
 
 ## Installation Options
 Our installation will include the following:
