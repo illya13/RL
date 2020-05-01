@@ -26,6 +26,7 @@ Please also note:
 - CUDA `10.2` requires GCC `<= 8`
 
 <!--more-->
+
 ## Install compatible version of gcc 
 Ubuntu 20.04 LTS comes with:
 - gcc: `9`
@@ -53,6 +54,7 @@ There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
 Press <enter> to keep the current choice[*], or type selection number: 0
 update-alternatives: using /usr/bin/gcc-9 to provide /usr/bin/gcc (gcc) in auto mode
 ```
+
 ## Install python and python package managers
 There are multiple ways how to manage `python` versions and envs. 
 I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) 
@@ -66,6 +68,7 @@ I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https
 > python -V
 Python 3.8.2
 ```   
+
 ## NVIDIA GPU drivers
 Get and run installer.
 ```bash
@@ -109,6 +112,7 @@ Verify installation:
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ``` 
+
 ## CUDA Toolkit and cuDNN
 Switch `gcc` to `gcc-8`
 ```bash
@@ -169,6 +173,7 @@ I had to make the following changes:
 > sudo ln -s libcudnn.so.7 /usr/local/cuda-10.2/targets/x86_64-linux/lib/libcudnn.so
 > sudo ldconfig
 ```
+
 ## PyTorch
 ```bash
 > pip install --upgrade pip
@@ -211,7 +216,8 @@ You also can run `nvidia-smi` in parallel to check GPU load.
 |    0     84404      C   ...ubuntu/.pyenv/versions/torch/bin/python  7989MiB |
 +-----------------------------------------------------------------------------
 ```
-## Docker in Ubuntu 20.04 LTS
+
+## Docker support on Ubuntu 20.04 LTS
 There are number of `docker` packages available
 - `docker-ce` package from docker.com
 - `docker.io` package provided by Canonical
@@ -238,6 +244,7 @@ Server:
   API version:      1.40 (minimum version 1.12)
 ...  
 ``` 
+
 ## NVIDIA Container Toolkit
 Add the package repositories
 ```bash
@@ -256,6 +263,7 @@ Continue installation
 sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 sudo systemctl restart docker
 ```
+
 ## Validating installation
 Run `nvidia-smi` in a docker
 ```bash

@@ -32,6 +32,7 @@ At time of writing the following versions were available:
 - [cuDNN SDK](https://developer.nvidia.com/cudnn): `v7.6.5`
 
 <!--more-->
+
 ## Install compatible versions of python and gcc 
 Ubuntu 20.04 LTS comes with:
 - python: `3.8`
@@ -73,6 +74,7 @@ I've selected [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https
 > python -V
 Python 3.7.7
 ```   
+
 ## NVIDIA GPU drivers
 Get and run installer.
 ```bash
@@ -116,6 +118,7 @@ Verify installation:
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ``` 
+
 ## CUDA Toolkit and cuDNN
 Switch `gcc` to `gcc-8`
 ```bash
@@ -176,6 +179,7 @@ I had to make the following changes:
 > sudo ln -s libcudnn.so.7 /usr/local/cuda-10.1/targets/x86_64-linux/lib/libcudnn.so
 > sudo ldconfig
 ```
+
 ## TensorFlow 2 with GPU support
 ```bash
 > pip install --upgrade pip

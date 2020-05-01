@@ -241,6 +241,7 @@ Delete Pod
 
 pod "nvidia-smi" deleted
 ```
+
 ## Optional Installation
 ### Install Helm 3
 ```bash
