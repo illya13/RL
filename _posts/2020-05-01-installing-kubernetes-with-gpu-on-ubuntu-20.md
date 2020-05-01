@@ -13,7 +13,7 @@ excerpt_separator:  <!--more-->
 There are [multiple ways](https://ubuntu.com/kubernetes/install) to install Kubernetes on Ubuntu 20.04.
 The [easiest](https://ubuntu.com/kubernetes/install#single-node) but not the best way is to use [MicroK8s](https://microk8s.io/) for single node setup. 
 At this point I would not recommend using `MicroK8s` if you need GPU support:
-- I personally failed to make it work with GPU support
+- I personally failed to make it working with GPU support
     - [standard K8s GPU example doesn't work](https://github.com/ubuntu/microk8s/issues/448)
     - [Revert to containerd 1.2.5 until we get gpu to work on 1.3.0](https://github.com/ubuntu/microk8s/pull/813)
 - it is trying to do too many things on multiple platforms
@@ -27,7 +27,7 @@ Before continuing Kubernetes installation process, please make sure you already 
 - docker: `> 19.03`
 - [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-docker)
 
-Check docker MVIDIA support 
+Check docker NVIDIA support 
 ```bash
 > docker info | grep nvidia
 
@@ -46,8 +46,11 @@ Our installation will include the following:
 - [CoreDNS](https://github.com/coredns/deployment) - enabled by default 
 - [Cilium](https://docs.cilium.io/en/stable/) - as Pod network
 - [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) - run GPU enabled containers
-- (Optional) [Helm](https://github.com/helm/helm)
-- (Optional) 
+
+Optional: 
+- [Helm](https://github.com/helm/helm)
+- Kubernetes Dashboard
+- Local Docker Registry
 
 ## Install kubeadm
 Our installation procedure will be based on:
@@ -66,7 +69,7 @@ EOF
 ``` 
 
 Modify `/etc/docker/daemon.json` and add the following
-```json
+```bash
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
   "log-opts": {
@@ -238,3 +241,4 @@ Delete Pod
 
 pod "nvidia-smi" deleted
 ```
+## Optional Installation
