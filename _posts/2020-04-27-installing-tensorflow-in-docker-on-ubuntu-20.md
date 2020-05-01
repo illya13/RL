@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing TensorFlow 2 with GPU support on Ubuntu 20.04 LTS in Docker
+title: Installing TensorFlow 2 with GPU and Docker support on Ubuntu 20.04 LTS
 categories:
   - Tutorial
 tags:
