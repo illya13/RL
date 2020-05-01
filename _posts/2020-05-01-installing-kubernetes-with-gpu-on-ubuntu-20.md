@@ -49,8 +49,8 @@ Our installation will include the following:
 
 Optional: 
 - [Helm](https://github.com/helm/helm)
-- Kubernetes Dashboard
-- Local Docker Registry
+- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard) (TBD)
+- Local Docker Registry (TBD)
 
 ## Install kubeadm
 Our installation procedure will be based on:
@@ -242,3 +242,40 @@ Delete Pod
 pod "nvidia-smi" deleted
 ```
 ## Optional Installation
+Install Helm 3
+```bash
+> curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+Downloading https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
+Preparing to install helm into /usr/local/bin
+helm installed into /usr/local/bin/helm
+
+> helm version
+version.BuildInfo{Version:"v3.2.0", GitCommit:"e11b7ce3b12db2941e90399e874513fbd24bcb71", GitTreeState:"clean", GoVersion:"go1.13.10"}
+```
+
+Install Kubernetes Web UI (Dashboard)
+Our installation procedure will be based on:
+- [Deploying the Dashboard UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui)
+- [Getting Started](https://github.com/kubernetes/dashboard#getting-started)
+- [Access Control](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md)
+- [Creating sample user](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md) 
+
+```bash
+> kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+
+namespace/kubernetes-dashboard created
+serviceaccount/kubernetes-dashboard created
+service/kubernetes-dashboard created
+secret/kubernetes-dashboard-certs created
+secret/kubernetes-dashboard-csrf created
+secret/kubernetes-dashboard-key-holder created
+configmap/kubernetes-dashboard-settings created
+role.rbac.authorization.k8s.io/kubernetes-dashboard created
+clusterrole.rbac.authorization.k8s.io/kubernetes-dashboard created
+rolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+deployment.apps/kubernetes-dashboard created
+service/dashboard-metrics-scraper created
+deployment.apps/dashboard-metrics-scraper created
+```
