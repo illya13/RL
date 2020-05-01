@@ -37,7 +37,7 @@ Check docker NVIDIA support
 ```
 
 If not please check my other tutorials and install missing bits:
-- [Installing TensorFlow 2 with GPU support on Ubuntu 20.04 LTS in Docker](https://illya13.github.io/RL/tutorial/2020/04/27/installing-tensorflow-on-ubuntu-20-in-docker.html)
+- [Installing TensorFlow 2 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/27/installing-tensorflow-in-docker-on-ubuntu-20.html)
 - [Installing PyTorch 1.5 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/28/installing-pytorch-on-ubuntu-20.html)
 
 ## Installation Options
