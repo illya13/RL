@@ -242,7 +242,7 @@ Delete Pod
 pod "nvidia-smi" deleted
 ```
 ## Optional Installation
-Install Helm 3
+### Install Helm 3
 ```bash
 > curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
@@ -254,7 +254,7 @@ helm installed into /usr/local/bin/helm
 version.BuildInfo{Version:"v3.2.0", GitCommit:"e11b7ce3b12db2941e90399e874513fbd24bcb71", GitTreeState:"clean", GoVersion:"go1.13.10"}
 ```
 
-Install Kubernetes Web UI (Dashboard)
+### Install Kubernetes Web UI (Dashboard)
 Our installation procedure will be based on:
 - [Deploying the Dashboard UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui)
 - [Getting Started](https://github.com/kubernetes/dashboard#getting-started)
