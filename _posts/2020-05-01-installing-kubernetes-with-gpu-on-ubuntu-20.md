@@ -120,7 +120,7 @@ Init cluster, copy config to a current user, launch cilium Pod network, untainte
 Check status so far
 ```bash
 > kubectl get pods --all-namespaces
-> docker ps --format "{{.ID}}\t{{.Names}}"
+> docker ps
 ```
 
 ## NVIDIA device plugin
@@ -147,7 +147,7 @@ kube-system   nvidia-device-plugin-daemonset-plbsl   1/1     Running   1        
 ```
 
 ```bash
-> docker ps --format "{{.ID}}\t{{.Names}}"
+> docker ps
 
 ea36d0c10cc3    k8s_nvidia-device-plugin-ctr_nvidia-device-plugin-daemonset-plbsl_kube-system_7a1ffb88-5c23-44fa-ade3-3518c4f8e14d_1
 468ecaea6b7d    k8s_coredns_coredns-66bff467f8-rcxrb_kube-system_db5c7834-212b-44c3-a499-6cd27237b7cf_1
