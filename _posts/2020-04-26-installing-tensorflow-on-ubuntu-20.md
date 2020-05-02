@@ -32,7 +32,6 @@ At time of writing the following versions were available:
 - [cuDNN SDK](https://developer.nvidia.com/cudnn): `v7.6.5`
 
 <!--more-->
-
 ## Install compatible versions of python and gcc 
 Ubuntu 20.04 LTS comes with:
 - python: `3.8`
