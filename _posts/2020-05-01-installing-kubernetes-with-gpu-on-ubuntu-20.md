@@ -248,6 +248,7 @@ Our installation procedure will be based on:
 - [Access Control](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md)
 - [Creating sample user](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md) 
 
+Install Dashboard
 ```bash
 > kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 
