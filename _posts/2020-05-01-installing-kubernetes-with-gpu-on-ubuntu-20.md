@@ -36,7 +36,7 @@ Check docker NVIDIA support
  Default Runtime: nvidia
 ```
 
-If not please check my other tutorials and install missing bits:
+And if it is not there then please check my other tutorials and install missing bits:
 - [Installing TensorFlow 2 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/27/installing-tensorflow-in-docker-on-ubuntu-20.html)
 - [Installing PyTorch 1.5 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/28/installing-pytorch-on-ubuntu-20.html)
 
@@ -46,11 +46,10 @@ Our installation will include the following:
 - [CoreDNS](https://github.com/coredns/deployment) - enabled by default 
 - [Cilium](https://docs.cilium.io/en/stable/) - as Pod network
 - [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) - run GPU enabled containers
+- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
 
 Optional: 
 - [Helm](https://github.com/helm/helm)
-- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
-- Local Docker Registry (TBD)
 
 ## Install kubeadm
 Our installation procedure will be based on:
@@ -242,20 +241,7 @@ Delete Pod
 pod "nvidia-smi" deleted
 ```
 
-## Optional Installation
-### Install Helm 3
-```bash
-> curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-
-Downloading https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
-Preparing to install helm into /usr/local/bin
-helm installed into /usr/local/bin/helm
-
-> helm version
-version.BuildInfo{Version:"v3.2.0", GitCommit:"e11b7ce3b12db2941e90399e874513fbd24bcb71", GitTreeState:"clean", GoVersion:"go1.13.10"}
-```
-
-### Install Kubernetes Web UI (Dashboard)
+## Install Kubernetes Web UI (Dashboard)
 Our installation procedure will be based on:
 - [Deploying the Dashboard UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui)
 - [Getting Started](https://github.com/kubernetes/dashboard#getting-started)
@@ -340,4 +326,17 @@ Run port forwarding to get access to Dashboard
 Open in a browser and use `token` to login
 ```
 https://<external ip>:10443/
+```
+
+## Optional Installation
+### Install Helm 3
+```bash
+> curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+Downloading https://get.helm.sh/helm-v3.2.0-linux-amd64.tar.gz
+Preparing to install helm into /usr/local/bin
+helm installed into /usr/local/bin/helm
+
+> helm version
+version.BuildInfo{Version:"v3.2.0", GitCommit:"e11b7ce3b12db2941e90399e874513fbd24bcb71", GitTreeState:"clean", GoVersion:"go1.13.10"}
 ```
