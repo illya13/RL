@@ -348,7 +348,7 @@ Dynamic volume provisioning allows storage volumes to be created on-demand. With
 - [Dynamic Volume Provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)
 - [Change the default StorageClass](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)
  
-The provisioner will be installed in local-path-storage namespace by default
+The provisioner will be installed in `local-path-storage` namespace by default
 ```bash
 > kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 
