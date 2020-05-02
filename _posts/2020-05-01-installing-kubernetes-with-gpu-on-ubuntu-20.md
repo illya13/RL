@@ -50,6 +50,7 @@ Our installation will include the following:
 
 Optional: 
 - [Helm](https://github.com/helm/helm)
+- [Local Path Provisioner](https://github.com/rancher/local-path-provisioner) - dynamic volume provisioner
 
 ## Install kubeadm
 Our installation procedure will be based on:
@@ -340,4 +341,38 @@ helm installed into /usr/local/bin/helm
 
 > helm version
 version.BuildInfo{Version:"v3.2.0", GitCommit:"e11b7ce3b12db2941e90399e874513fbd24bcb71", GitTreeState:"clean", GoVersion:"go1.13.10"}
+```
+
+### Local Path Provisioner
+Dynamic volume provisioning allows storage volumes to be created on-demand. Without dynamic provisioning, cluster administrators have to manually make calls to their cloud or storage provider to create new storage volumes, and then create PersistentVolume objects to represent them in Kubernetes. The dynamic provisioning feature eliminates the need for cluster administrators to pre-provision storage. Instead, it automatically provisions storage when it is requested by users.
+- [Dynamic Volume Provisioning](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)
+- [Change the default StorageClass](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)
+ 
+The provisioner will be installed in local-path-storage namespace by default
+```bash
+> kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+
+namespace/local-path-storage created
+serviceaccount/local-path-provisioner-service-account created
+clusterrole.rbac.authorization.k8s.io/local-path-provisioner-role created
+clusterrolebinding.rbac.authorization.k8s.io/local-path-provisioner-bind created
+deployment.apps/local-path-provisioner created
+storageclass.storage.k8s.io/local-path created
+configmap/local-path-config created
+```
+
+Get storage classes
+```bash
+> kubectl get storageclass
+
+NAME         PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+local-path   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  4h10m
+```
+
+Set default storage class
+```bash
+> kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+
+NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  4h11m
 ```
