@@ -49,7 +49,7 @@ Our installation will include the following:
 
 Optional: 
 - [Helm](https://github.com/helm/helm)
-- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard) (TBD)
+- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
 - Local Docker Registry (TBD)
 
 ## Install kubeadm
@@ -279,4 +279,65 @@ clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
 deployment.apps/kubernetes-dashboard created
 service/dashboard-metrics-scraper created
 deployment.apps/dashboard-metrics-scraper created
+```
+
+Copy snippet below to a new file `dashboard-adminuser.yaml` 
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
+```
+
+Create Service Account with name `admin-user` in namespace `kubernetes-dashboard`. 
+```bash
+> kubectl apply -f dashboard-adminuser.yaml
+
+serviceaccount/admin-user created
+clusterrolebinding.rbac.authorization.k8s.io/admin-user created
+```
+
+Get token to login to Dashboard
+```bash
+> kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+
+Name:         admin-user-token-sqtpz
+Namespace:    kubernetes-dashboard
+Labels:       <none>
+Annotations:  kubernetes.io/service-account.name: admin-user
+              kubernetes.io/service-account.uid: ce8f396e-d1a9-467f-81dc-7dd01a6b5261
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+ca.crt:     1025 bytes
+namespace:  20 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6InAxVWVMc2hjcGZZeHFhbzgwSy15bkVUV1A4RzlTa3dqMUtGZ3NwLW9ydkEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXNxdHB6Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJjZThmMzk2ZS1kMWE5LTQ2N2YtODFkYy03ZGQwMWE2YjUyNjEiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.nSySDHsab3w54p_lK5rXjQjo0zRiZ8cm0ijhrqU7UUZVBwzGahaiCSpWG-olhQ69duxGooFiWBcxFrVrd6XrvFdcd_5CPN5caHj5o-ZDsin9vNusGMJsIdfzVeBza_R_SPAb4M9NX5uhEGwtZtxtsqJ_BVi9am8VQA5-yxR6rKlX2tOoP6ZiQFXnzlUuYDC2P4YsJGINz3yJk4eIyi2bxsi2LS9l7kg8aGtJtUhNDc-2xxTozaCTgincpMz_RSnk0QPw3EWw_PuApxnYs4D8s6y7dMPjjFh7VjcJxqSPT9NaKAr-eWCAeUnzxvIbWFBYawU7THzlD7JjHm_sNLBgjg
+```
+
+Run port forwarding to get access to Dashboard
+```bash
+> kubectl port-forward --address='0.0.0.0' -n kubernetes-dashboard service/kubernetes-dashboard 10443:443
+``` 
+
+Open in a browser and use `token` to login
+```
+https://<external ip>:10443/
 ```
