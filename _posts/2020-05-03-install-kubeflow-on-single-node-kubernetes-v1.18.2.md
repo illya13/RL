@@ -93,7 +93,8 @@ and follow [Registration Flow](https://www.kubeflow.org/docs/components/central-
 Go to `Notebook Servers` and create a new one with `GPU` support
 ![new notebook server]({{ "/assets/img/new-notebook-server.png" | relative_url }})
 
-Connect to it. `New` -> `Python3`
+Connect to it. 
+Jupyter Notebook: `New` -> `Python3`
 
 ```python
 import tensorflow as tf; tf.config.list_physical_devices('GPU')
@@ -104,7 +105,7 @@ Run
 [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
 
-`New` -> `Terminal`
+Jupyter Notebook: `New` -> `Terminal`
 ```bash
 > git clone https://github.com/tensorflow/benchmarks
 > python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --num_gpus=1 --model resnet50 --batch_size 64
