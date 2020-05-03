@@ -77,3 +77,14 @@ replicaset.apps/spartakus-volunteer-5978bf56f                            1      
 Note. I'm observing deployment issues with `ml-pipeline-viewer-controller`.
 
 ## Kubeflow Dashboard
+In our case the setup is based on [Istio gateway](https://istio.io/docs/reference/config/networking/gateway/)
+
+Get access to Kubeflow via kubectl and port-forwarding as follows:
+```bash
+> kubectl port-forward --address='0.0.0.0' -n istio-system service/istio-ingressgateway 8080:80
+```
+
+Open in a browser
+```
+http://<external ip>:8080/
+```
