@@ -77,9 +77,7 @@ replicaset.apps/spartakus-volunteer-5978bf56f                            1      
 Note. I'm observing deployment issues with `ml-pipeline-viewer-controller`.
 
 ## Kubeflow Dashboard
-In our case the setup is based on [Istio gateway](https://istio.io/docs/reference/config/networking/gateway/)
-
-Get access to Kubeflow via kubectl and port-forwarding as follows:
+In our case the setup is based on [Istio gateway](https://istio.io/docs/reference/config/networking/gateway/). So get access to Kubeflow UI let's use port-forwarding as follows:
 ```bash
 > kubectl port-forward --address='0.0.0.0' -n istio-system service/istio-ingressgateway 8080:80
 ```
@@ -87,4 +85,49 @@ Get access to Kubeflow via kubectl and port-forwarding as follows:
 Open in a browser
 ```
 http://<external ip>:8080/
+```
+
+and follow [Registration Flow](https://www.kubeflow.org/docs/components/central-dash/registration-flow/) to setting up your namespace in `Kubeflow`.
+
+## Check GPU support
+Go to `Notebook Servers` and create a new one with `GPU` support
+![new notebook server]({{ "/assets/img/new-notebook-server.png" | relative_url }})
+
+Connect to it. `New` -> `Python3`
+
+```python
+import tensorflow as tf; tf.config.list_physical_devices('GPU')
+```
+
+Run
+```
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+```
+
+`New` -> `Terminal`
+```bash
+> git clone https://github.com/tensorflow/benchmarks
+> python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --num_gpus=1 --model resnet50 --batch_size 64
+```
+
+You also can run `nvidia-smi` in parallel to check GPU load.
+```bash
+> watch nvidia-smi
+
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.82       Driver Version: 440.82       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 107...  Off  | 00000000:09:00.0 Off |                  N/A |
+|  0%   53C    P2   157W / 180W |   8001MiB /  8118MiB |     99%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0    717035      C   python                                      7991MiB |
++-----------------------------------------------------------------------------+
 ```
