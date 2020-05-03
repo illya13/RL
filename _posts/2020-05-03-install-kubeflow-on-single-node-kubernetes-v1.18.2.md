@@ -19,6 +19,7 @@ This installation is based on:
 Other goal is to have GPU support. So please check other tutorials:
 - [Installing TensorFlow 2 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/27/installing-tensorflow-in-docker-on-ubuntu-20.html)
 - [Installing PyTorch 1.5 with GPU and Docker support on Ubuntu 20.04 LTS](https://illya13.github.io/RL/tutorial/2020/04/28/installing-pytorch-on-ubuntu-20.html)
+<!--more-->
 
 ## Install kfctl v1.0.2
 Assuming Linux/Ubuntu OS
@@ -72,3 +73,7 @@ replicaset.apps/spartakus-volunteer-5978bf56f                            1      
 
 > kubectl -n kubeflow delete deployment spartakus-volunteer
 ``` 
+
+Note. I'm observing deployment issues with `ml-pipeline-viewer-controller`.
+
+## Kubeflow Dashboard
