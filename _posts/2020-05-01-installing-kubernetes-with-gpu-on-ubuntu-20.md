@@ -43,6 +43,7 @@ And if it is not there then please check my other tutorials and install missing 
 ## Installation Options
 Our installation will include the following:
 - [Kubernetes](https://kubernetes.io/): `v1.18+`
+- [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) - enabled by default
 - [CoreDNS](https://github.com/coredns/deployment) - enabled by default 
 - [Cilium](https://docs.cilium.io/en/stable/) - as Pod network
 - [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) - run GPU enabled containers
