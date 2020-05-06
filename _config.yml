@@ -9,3 +9,6 @@ sidebar_blog_link:  '/'
 
 disqus:
   shortname:      rl-at-illya13
+
+plugins:
+  - jekyll-sitemap
