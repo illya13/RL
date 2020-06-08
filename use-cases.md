@@ -20,3 +20,5 @@ References:
 - [https://perfectial.com/blog/reinforcement-learning-applications/](https://perfectial.com/blog/reinforcement-learning-applications/)
 - [https://thegradient.pub/how-to-fix-rl/](https://thegradient.pub/how-to-fix-rl/)
 - [https://thegradient.pub/why-rl-is-flawed/](https://thegradient.pub/why-rl-is-flawed/)
+- [https://arxiv.org/pdf/1908.06973.pdf](https://arxiv.org/pdf/1908.06973.pdf)
+- [https://arxiv.org/pdf/1904.12901.pdf](https://arxiv.org/pdf/1904.12901.pdf)
