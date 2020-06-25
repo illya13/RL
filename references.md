@@ -22,3 +22,8 @@ sidebar_sort_order: 100
     - [Reinforcement Learning and Artificial Intellgience (RLAI) lab](http://rlai.ualberta.ca/)
     - [Reinforcement Learning: An Introduction, Richard S. Sutton and Andrew G. Barto, 2nd, 2018](http://incompleteideas.net/book/the-book.html)
 - [Eye on AI](https://www.eye-on.ai/)
+- [The Top 55 Openai Gym Open Source Projects](https://awesomeopensource.com/projects/openai-gym)
+- [Coach](https://github.com/NervanaSystems/coach)
+- [Basic Reinforcement Learning](https://github.com/vmayoral/basic_reinforcement_learning)
+- [RLCard: A Toolkit for Reinforcement Learning in Card Games](https://github.com/datamllab/rlcard)
+- [Awesome-Game-AI](https://github.com/datamllab/awesome-game-ai)
